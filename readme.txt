@@ -1,5 +1,5 @@
 === CC Mortgage Calculator ===
-Contributors: CalculatorsCanada
+Contributors: CalculatorsCanada.ca
 Donate link: http://mortgage.calculatorscanada.ca/
 Tags: loan, mortgage, mortgage calculator, interest, calculator, sidebar, widget, plugin, financial
 Requires at least: 3.0
@@ -22,7 +22,7 @@ Calculator is very easy customizable: you can change color of background, border
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to Appearance -> Widgets and add the widget to your website sidebar
 
-Please visit [plugin home page](http://mortgage.calculatorscanada.ca/widgets) for more detailed installation and setup instructions
+Please visit [plugin home page](http://mortgage.calculatorscanada.ca/mortgage-widgets) for more detailed installation and setup instructions
 
 == Frequently Asked Questions ==
 
