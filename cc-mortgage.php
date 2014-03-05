@@ -4,7 +4,7 @@
 Plugin Name: CC Mortgage Calculator
 Plugin URI: http://mortgage.calculatorscanada.ca/widgets/
 Description: Simple Mortgage Calculator
-Version: 0.1.0
+Version: 0.1.3
 Author: Calculators Canada
 Author URI: http://calculatorscanada.ca/
 License: GPL2
@@ -59,6 +59,7 @@ class cc_mortgage extends WP_Widget {
         $instance = wp_parse_args( (array) $instance, $defaults ); 
 
         extract($instance);
+        if (!isset($allow_cc_urls)) $allow_cc_urls = 0;
 
 		?>
         <script>
