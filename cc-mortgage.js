@@ -15,25 +15,26 @@ $J( document ).ready(function() {
 	});	
 
 	$J(".mortgage-rate").keydown(function(event) {
-		if(!(isDecimalKey(event,$J("#" + $J(this).closest("aside").attr("id") + "-mortgage-rate").val()))) event.preventDefault();
+		//if(!(isDecimalKey(event,$J("#" + $J(this).closest("aside").attr("id") + "-mortgage-rate").val()))) event.preventDefault();
+        if(!(isDecimalKey(event,this.value))) event.preventDefault();
 		
 	});	
 	
 	$J(".mortgage").keyup(function( ) {
-		calculate_mortgage($J(this).closest("aside").attr("id"));
+        calculate_mortgage(get_id(this.id,"mortgage"));
 	});
 	$J(".mortgage-term").keyup(function( ) {
-		calculate_mortgage($J(this).closest("aside").attr("id"));
+        calculate_mortgage(get_id(this.id,"mortgage-term"));
 	});
 	$J(".mortgage-rate").keyup(function( ) {
-		calculate_mortgage($J(this).closest("aside").attr("id"));
+        calculate_mortgage(get_id(this.id,"mortgage-rate"));
 	});
 
 });
 
-function format_id(id,name)
+function get_id(long_id,fieldname)
 {
-    
+    return long_id.substr(0, long_id.lastIndexOf(fieldname) - 1);
 };
 
 function calculate_mortgage(id)
@@ -62,9 +63,7 @@ function calculate_mortgage(id)
 	$J('#' + id + '-' + 'monthlyPayment').html(monthlyPayment);
 	$J('#' + id + '-' + 'totalPayment').html(totalPayment);
 	$J('#' + id + '-' + 'interestPaid').html(interestPaid);
-	//id = $J(this).closest("aside").attr("id");
-    //$J('#' + id + '-' + 'interestPaid').html(id);
-	   
+   
 };
 
 
