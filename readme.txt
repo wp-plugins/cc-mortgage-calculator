@@ -40,11 +40,11 @@ Please [contact us](http://calculatorscanada.ca/contact) if you have further que
 == Changelog ==
 
 = 0.3.0 =
-* Tested for wordpress 4.0 compatibility
+* Tested for WordPress 4.0 compatibility
 
 = 0.2.0 =
 * Fixed major bug: mortgage calculator wasn't working with some wordpress themes
-* Tested for wordpress 3.9 compatibility
+* Tested for WordPress 3.9 compatibility
 
 = 0.1.3 =
 * Fixed minor bug (Undefined variable)
