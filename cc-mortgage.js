@@ -15,7 +15,6 @@ $J( document ).ready(function() {
 	});	
 
 	$J(".mortgage-rate").keydown(function(event) {
-		//if(!(isDecimalKey(event,$J("#" + $J(this).closest("aside").attr("id") + "-mortgage-rate").val()))) event.preventDefault();
         if(!(isDecimalKey(event,this.value))) event.preventDefault();
 		
 	});	

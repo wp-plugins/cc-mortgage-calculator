@@ -2,9 +2,8 @@
 function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color, $border_color, $text_color)
 {
     if ($show_url == 1)
-        load_cc_custom_colors($id, $bg_color, $border_color, $text_color);
+        load_ccm_custom_colors($id, $bg_color, $border_color, $text_color);
 ?>
-
 
 <div class="CCM-Widget CCM-Widget-<?php echo $id; ?>">
 	 	<div class="CCM-WidgetTitle CCM-WidgetTitle-<?php echo $id; ?>"><?php echo $title; ?></div>		   
@@ -72,7 +71,7 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
 }
 
 
-function load_cc_custom_colors($id, $bg_color, $border_color, $text_color)
+function load_ccm_custom_colors($id, $bg_color, $border_color, $text_color)
 {
 ?>
 <style type="text/css">
