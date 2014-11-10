@@ -60,7 +60,7 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
         </div>
         <?php if ($show_url) { ?>
     		<div class="ccm-rowdiv" >
-                <div class="CCM-WidgetSignature CCM-WidgetSignature-<?php echo $id; ?>">Provided by <a href="http://CalculatorsCanada.ca" target="_blank">CalculatorsCanada.ca</a></div>
+                <div class="CCM-WidgetSignature CCM-WidgetSignature-<?php echo $id; ?>">Provided by <a href="http://mortgage.calculatorscanada.ca" target="_blank">CalculatorsCanada.ca</a></div>
 		    </div>
         <?php } ?>
 		
