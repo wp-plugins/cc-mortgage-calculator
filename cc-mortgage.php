@@ -4,7 +4,7 @@
 Plugin Name: CC Mortgage Calculator
 Plugin URI: http://mortgage.calculatorscanada.ca/widgets/
 Description: Simple Mortgage Calculator
-Version: 0.3.1
+Version: 1.0
 Author: Calculators Canada
 Author URI: http://mortgage.calculatorscanada.ca/
 License: GPL2
@@ -51,7 +51,7 @@ class cc_mortgage extends WP_Widget {
             'title' => __('Mortgage calculator', 'cctextdomain'),
             'currency_symbol' => '$',
             'bg_color' => '#ffffff',
-            'border_color' => '#000000',
+            'border_color' => '#cccccc',
             'text_color' => '#000000'
         );
 
@@ -120,7 +120,7 @@ class cc_mortgage extends WP_Widget {
 
         $instance['currency_symbol'] = $new_instance['currency_symbol'];
         $instance['bg_color'] = ( preg_match($hex_color_pattern, $new_instance['bg_color']) ) ? $new_instance['bg_color'] : "#ffffff";
-        $instance['border_color'] = ( preg_match($hex_color_pattern, $new_instance['border_color']) ) ? $new_instance['border_color'] : "#000000";
+        $instance['border_color'] = ( preg_match($hex_color_pattern, $new_instance['border_color']) ) ? $new_instance['border_color'] : "#cccccc";
         $instance['text_color'] = ( preg_match($hex_color_pattern, $new_instance['text_color']) ) ? $new_instance['text_color'] : "#000000";
         $instance['allow_cc_urls'] = ($new_instance['allow_cc_urls'] == "on") ? 1 : 0;
 		return $instance;
@@ -147,9 +147,9 @@ add_action('widgets_init', create_function('', 'return register_widget("cc_mortg
 
 // load widget style and javascript files
 function cc_mortgage_scripts() {
-	wp_register_style( 'cc-mortgage', plugins_url('/cc-mortgage.css',__FILE__)); 
+	wp_register_style( 'cc-mortgage', plugins_url('/cc-mortgage.css',__FILE__), NULL, '1.0'); 
 	wp_enqueue_style( 'cc-mortgage' );
-    wp_enqueue_script( 'cc-mortgage', plugins_url('/cc-mortgage.js',__FILE__), array('jquery'), '0.1.0', true );
+    wp_enqueue_script( 'cc-mortgage', plugins_url('/cc-mortgage.js',__FILE__), array('jquery'), '1.0', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'cc_mortgage_scripts' );
@@ -163,5 +163,17 @@ function cc_mortgage_admin( $hook_suffix ) {
 
 add_action( 'admin_enqueue_scripts', 'cc_mortgage_admin' );
 
+
+function cc_mortgage_shortcode($atts, $content=null)
+{
+	$atts = shortcode_atts (array('title'=>'Mortgage calculator','currency_symbol'=>'$','dev_credit'=>'1', 'bg_color'=>'#ffffff', 'border_color'=>'#cccccc', 'text_color'=>'#000000'), $atts);
+    ob_start();
+    load_cc_mortgage_calc('cc_mortgage_shortcode', $atts['title'], $atts['currency_symbol'], $atts['dev_credit'], $atts['bg_color'], $atts['border_color'], $atts['text_color']);
+    $widget = ob_get_contents();
+    ob_end_clean();
+    return trim($widget);
+}
+
+add_shortcode('cc-mortgage','cc_mortgage_shortcode');
 
 ?>

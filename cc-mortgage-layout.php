@@ -5,14 +5,23 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
         load_ccm_custom_colors($id, $bg_color, $border_color, $text_color);
 ?>
 
+<input type="hidden" id="<?php echo $id; ?>-currency" value="<?php echo $currency; ?>"> 
 <div class="CCM-Widget CCM-Widget-<?php echo $id; ?>">
 	 	<div class="CCM-WidgetTitle CCM-WidgetTitle-<?php echo $id; ?>"><?php echo $title; ?></div>		   
         <div class="ccm-rowdiv">
 			 <div class="ccm-leftdiv">
-                <label for="<?php echo $id; ?>-mortgage">Mortgage amount <?php echo $currency; ?> :</label>
+                <label for="<?php echo $id; ?>-purchase-price">Purchace price <?php echo $currency; ?> :</label>
 			 </div>
 			 <div class="ccm-rightdiv">
-  	    	    <input id="<?php echo $id; ?>-mortgage" class="mortgage" type="text" placeholder="enter amount">
+  	    	    <input id="<?php echo $id; ?>-purchase-price" class="purchase-price" type="text" placeholder="enter purchase price">
+			 </div>
+        </div>
+        <div class="ccm-rowdiv">
+			 <div class="ccm-leftdiv">
+                <label for="<?php echo $id; ?>-down-payment">Down payment <?php echo $currency; ?> :</label>
+			 </div>
+			 <div class="ccm-rightdiv">
+  	    	    <input id="<?php echo $id; ?>-down-payment" class="down-payment" type="text" placeholder="enter down payment">
 			 </div>
         </div>
         <div class="ccm-rowdiv">
@@ -36,28 +45,21 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
 		</div>
         <div class="ccm-rowdiv">
 			 <div class="ccm-leftresultdiv">
-                <label for="<?php echo $id; ?>-monthlyPayment">Monthly payment <?php echo $currency; ?> :</label>
+                <label for="<?php echo $id; ?>-mortgage">Mortgage amount :</label>
+			 </div>
+			 <div class="ccm-rightresultdiv">
+                <span id="<?php echo $id; ?>-mortgage" class=""></span>
+			 </div>
+        </div>
+        <div class="ccm-rowdiv">
+			 <div class="ccm-leftresultdiv">
+                <label for="<?php echo $id; ?>-monthlyPayment">Monthly payment :</label>
 			 </div>
 			 <div class="ccm-rightresultdiv">
                 <span id="<?php echo $id; ?>-monthlyPayment" class=""></span>
 			 </div>
         </div>
-        <div class="ccm-rowdiv">
-			 <div class="ccm-leftresultdiv">
-                <label for="<?php echo $id; ?>-totalPayment">Total payment <?php echo $currency; ?> :</label>
-			 </div>
-			 <div class="ccm-rightresultdiv">
-                <span id="<?php echo $id; ?>-totalPayment" class=""></span>
-			 </div>
-        </div>
-        <div class="ccm-rowdiv">
-			 <div class="ccm-leftresultdiv">
-                <label for="<?php echo $id; ?>-interestPaid">Total interest paid <?php echo $currency; ?> :</label>
-			 </div>
-			 <div class="ccm-rightresultdiv">
-                <span id="<?php echo $id; ?>-interestPaid" class=""></span>
-			 </div>
-        </div>
+
         <?php if ($show_url) { ?>
     		<div class="ccm-rowdiv" >
                 <div class="CCM-WidgetSignature CCM-WidgetSignature-<?php echo $id; ?>">Provided by <a href="http://mortgage.calculatorscanada.ca" target="_blank">CalculatorsCanada.ca</a></div>
