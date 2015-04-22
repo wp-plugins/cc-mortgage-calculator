@@ -1,77 +1,85 @@
-jQuery(document).ready(function($) {
-	// runtime events
-	
-	$(".purchase-price").keydown(function(event) {
-		if(!(isIntegerKey(event))) event.preventDefault();
-		
-	});	
+jQuery(document).ready(function ($) {
+    // runtime events
 
-	$(".down-payment").keydown(function(event) {
-		if(!(isIntegerKey(event))) event.preventDefault();
-		
-	});	
+    $(".purchase-price").keydown(function (event) {
+        if (!(isIntegerKey(event))) event.preventDefault();
 
-	$(".mortgage-term").keydown(function(event) {
-		if(!(isIntegerKey(event))) event.preventDefault();
-		
-	});	
+    });
 
-	$(".mortgage-rate").keydown(function(event) {
-        if(!(isDecimalKey(event,this.value))) event.preventDefault();
-		
-	});	
-	
-	$(".purchase-price").keyup(function( ) {
-        calculate_mortgage(get_id(this.id,"purchase-price"));
-	});
+    $(".down-payment").keydown(function (event) {
+        if (!(isIntegerKey(event))) event.preventDefault();
 
-	$(".down-payment").keyup(function( ) {
-        calculate_mortgage(get_id(this.id,"down-payment"));
-	});
+    });
 
-	$(".mortgage-term").keyup(function( ) {
-        calculate_mortgage(get_id(this.id,"mortgage-term"));
-	});
+    $(".mortgage-term").keydown(function (event) {
+        if (!(isIntegerKey(event))) event.preventDefault();
 
-	$(".mortgage-rate").keyup(function( ) {
-        calculate_mortgage(get_id(this.id,"mortgage-rate"));
-	});
+    });
 
-    function get_id(long_id,fieldname)
-    {
+    $(".mortgage-rate").keydown(function (event) {
+        if (!(isDecimalKey(event, this.value))) event.preventDefault();
+
+    });
+
+    $(".purchase-price").keyup(function () {
+        calculate_mortgage(get_id(this.id, "purchase-price"));
+    });
+
+    $(".down-payment").keyup(function () {
+        calculate_mortgage(get_id(this.id, "down-payment"));
+    });
+
+    $(".mortgage-term").keyup(function () {
+        calculate_mortgage(get_id(this.id, "mortgage-term"));
+    });
+
+    $(".mortgage-rate").keyup(function () {
+        calculate_mortgage(get_id(this.id, "mortgage-rate"));
+    });
+
+    function get_id(long_id, fieldname) {
         return long_id.substr(0, long_id.lastIndexOf(fieldname) - 1);
     };
 
-    function calculate_mortgage(id)
-    {
-	    var price = $('#' + id + '-' + 'purchase-price').val(),
+
+    function clear_ouput(widget_id) {
+        $('.' + widget_id + '-output').html("");
+    };
+
+
+    function calculate_mortgage(id) {
+        var price = $('#' + id + '-' + 'purchase-price').val(),
             payment = $('#' + id + '-' + 'down-payment').val(),
 		    term = $('#' + id + '-' + 'mortgage-term').val(),
 		    rate = $('#' + id + '-' + 'mortgage-rate').val();
-	
-	    // if no data entered
-	    if (isNaN(price) || price == "") return;
-        if (isNaN(payment) || payment == "") return;
-	    if (isNaN(term) || term == "") return;
-	    if (isNaN(rate) || rate == "") return;
-	
-	
-	    var monthlyRate = (rate/12)/100,
+
+        // if no data entered
+        if (isNaN(price) || price == ""
+            || isNaN(payment) || payment == ""
+            || isNaN(term) || term == ""
+            || isNaN(rate) || rate == "") {
+            clear_ouput(id);
+            return;
+        }
+
+
+
+        var monthlyRate = (rate / 12) / 100,
 		    paymentsNumber = term * 12,
 		    monthlyPayment = 0,
 		    totalPayment = 0,
 		    interestPaid = 0,
             currency = $('#' + id + '-' + 'currency').val();
-		
-	    mortgage = price - payment;
 
-	    monthlyPayment = round2TwoDecimals((monthlyRate * mortgage * Math.pow(1 + monthlyRate, paymentsNumber)) / (Math.pow(1 + monthlyRate, paymentsNumber) - 1));
+        mortgage = price - payment;
+
+        monthlyPayment = round2TwoDecimals((monthlyRate * mortgage * Math.pow(1 + monthlyRate, paymentsNumber)) / (Math.pow(1 + monthlyRate, paymentsNumber) - 1));
 
         $('#' + id + '-' + 'mortgage').html(currency + formatNumber(mortgage).toString());
         $('#' + id + '-' + 'monthlyPayment').html(currency + formatNumber(monthlyPayment).toString());
-   
+
     };
-}); // <-- jQuery END
+});  // <-- jQuery END
 
     function isIntegerKey(evt)	  
           {

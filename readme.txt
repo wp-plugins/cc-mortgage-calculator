@@ -4,7 +4,7 @@ Donate link: http://mortgage.calculatorscanada.ca/
 Tags: loan, mortgage, mortgage calculator, interest, calculator, sidebar, widget, plugin, financial
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,12 +57,14 @@ Please [contact us](http://calculatorscanada.ca/contact) if you have further que
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed spelling error
+
 = 1.0 =
 * Added commas for thousands 
 * Input and output fields changed
 * Supports Shortcode
 * Fixed javascript issue
-
 
 = 0.3.1 =
 * Minor bug fix (link)
@@ -87,4 +89,4 @@ Please [contact us](http://calculatorscanada.ca/contact) if you have further que
 * Initial beta release
 
 == Upgrade Notice ==
-* Fixed javascript issue, added commas for thousands and shortcode support 
+* Fixed spelling error

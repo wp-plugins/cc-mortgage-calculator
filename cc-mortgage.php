@@ -4,12 +4,12 @@
 Plugin Name: CC Mortgage Calculator
 Plugin URI: http://mortgage.calculatorscanada.ca/widgets/
 Description: Simple Mortgage Calculator
-Version: 1.0
+Version: 1.0.1
 Author: Calculators Canada
 Author URI: http://mortgage.calculatorscanada.ca/
 License: GPL2
 
-Copyright 2013-2014 CalculatorsCanada.CA (info@calculatorscanada.ca)
+Copyright 2013-2015 CalculatorsCanada.CA (info@calculatorscanada.ca)
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or

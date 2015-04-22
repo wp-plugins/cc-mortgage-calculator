@@ -10,7 +10,7 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
 	 	<div class="CCM-WidgetTitle CCM-WidgetTitle-<?php echo $id; ?>"><?php echo $title; ?></div>		   
         <div class="ccm-rowdiv">
 			 <div class="ccm-leftdiv">
-                <label for="<?php echo $id; ?>-purchase-price">Purchace price <?php echo $currency; ?> :</label>
+                <label for="<?php echo $id; ?>-purchase-price">Purchase price <?php echo $currency; ?> :</label>
 			 </div>
 			 <div class="ccm-rightdiv">
   	    	    <input id="<?php echo $id; ?>-purchase-price" class="purchase-price" type="text" placeholder="enter purchase price">
@@ -48,7 +48,7 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
                 <label for="<?php echo $id; ?>-mortgage">Mortgage amount :</label>
 			 </div>
 			 <div class="ccm-rightresultdiv">
-                <span id="<?php echo $id; ?>-mortgage" class=""></span>
+                <span id="<?php echo $id; ?>-mortgage" class="<?php echo $id; ?>-output"></span>
 			 </div>
         </div>
         <div class="ccm-rowdiv">
@@ -56,7 +56,7 @@ function load_cc_mortgage_calc($id, $title, $currency, $show_url = 0, $bg_color,
                 <label for="<?php echo $id; ?>-monthlyPayment">Monthly payment :</label>
 			 </div>
 			 <div class="ccm-rightresultdiv">
-                <span id="<?php echo $id; ?>-monthlyPayment" class=""></span>
+                <span id="<?php echo $id; ?>-monthlyPayment" class="<?php echo $id; ?>-output"></span>
 			 </div>
         </div>
 
